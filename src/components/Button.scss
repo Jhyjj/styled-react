@@ -1,0 +1,81 @@
+$blue : #228be6;
+$gray : #495059;
+$pink : #f06595;
+
+@mixin button-color($color) {
+    background: $color;
+    &:hover{
+        background: darken($color, 30%);
+    }
+    &.outline{
+        color: $color;
+        background: none;
+        border: 1px solid $color;
+        &:hover{
+            background: $color;
+            color: #fff;
+        }
+    }
+}
+
+.Button{
+    color: #fff;
+    font-weight: bold;
+    outline: none;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    padding: 16px;
+    font-size: 18px;
+    background: $blue;
+    margin: 5px;
+
+    //사이즈 관리
+    &.large{
+        width: 200px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+
+    }
+    &.midium{
+        width: 150px;
+    }
+    &.small{
+        width: 120px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    &.xl{
+        width: 500px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    //컬러 관리
+    &.pink{
+        @include button-color($pink)
+    }
+
+    &.white{
+        background-color: white;
+        color: #228be6;
+        border: 1px solid #228be6;
+
+    }
+    &.black{
+        @include button-color($gray)
+    }
+    &.blue{
+        @include button-color($blue)
+    }
+
+    &.fullWidth{
+        width: 100%;
+    }
+
+    // &:hover{
+    //     // background: lighten($blue, 40%) ; //색상 40%밝게 해주는 함수
+    //     // background: darken($blue, 40%) ; //색상 40%어둡게 해주는 함수
+    // }
+}
